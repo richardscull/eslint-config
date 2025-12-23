@@ -1,28 +1,28 @@
-import type { ESLint } from 'eslint'
-import pluginUnusedImports from 'eslint-plugin-unused-imports'
+import type { ESLint } from "eslint";
+import pluginUnusedImports from "eslint-plugin-unused-imports";
 
-import type { LinterConfig } from '../utils'
+import type { LinterConfig } from "../utils";
 
 export function unusedConfig(): LinterConfig {
   return {
-    name: 'extend/unused',
+    name: "extend/unused",
     plugins: {
-      'unused-imports': pluginUnusedImports as ESLint.Plugin,
+      "unused-imports": pluginUnusedImports as ESLint.Plugin,
     },
     rules: {
-      'no-unused-vars': 'off',
-      '@typescript-eslint/no-unused-vars': 'off',
-      'unused-imports/no-unused-imports': 'error',
-      'unused-imports/no-unused-vars': [
-        'error',
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "unused-imports/no-unused-imports": "error",
+      "unused-imports/no-unused-vars": [
+        "error",
         {
-          args: 'after-used',
-          argsIgnorePattern: '^_',
+          args: "after-used",
+          argsIgnorePattern: "^_",
           ignoreRestSiblings: true,
-          vars: 'all',
-          varsIgnorePattern: '^_',
+          vars: "all",
+          varsIgnorePattern: "^_",
         },
       ],
     },
-  }
+  };
 }

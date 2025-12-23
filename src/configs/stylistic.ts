@@ -1,31 +1,31 @@
-import pluginStylistic from '@stylistic/eslint-plugin'
-import type { ESLint } from 'eslint'
-import pluginAntfu from 'eslint-plugin-antfu'
-import pluginHyoban from 'eslint-plugin-hyoban'
-import typescriptEslint from 'typescript-eslint'
+import pluginStylistic from "@stylistic/eslint-plugin";
+import type { ESLint } from "eslint";
+import pluginAntfu from "eslint-plugin-antfu";
+import pluginHyoban from "eslint-plugin-hyoban";
+import typescriptEslint from "typescript-eslint";
 
-import { GLOB_JSX_SRC, GLOB_TS_SRC } from '../consts'
-import type { Options } from '../option'
-import type { ConfigArray, LinterConfig } from '../utils'
+import { GLOB_JSX_SRC, GLOB_TS_SRC } from "../consts";
+import type { Options } from "../option";
+import type { ConfigArray, LinterConfig } from "../utils";
 
 function formattingConfigs({ formatting, lessOpinionated }: Required<Options>): ConfigArray {
   if (!formatting) {
-    return []
+    return [];
   }
 
   const jsxIgnoreNodes = [
-    'TemplateLiteral *',
-    'TSUnionType',
-    'TSIntersectionType',
-    'TSTypeParameterInstantiation',
-    'FunctionExpression > .params[decorators.length > 0]',
-    'FunctionExpression > .params > :matches(Decorator, :not(:first-child))',
-  ]
+    "TemplateLiteral *",
+    "TSUnionType",
+    "TSIntersectionType",
+    "TSTypeParameterInstantiation",
+    "FunctionExpression > .params[decorators.length > 0]",
+    "FunctionExpression > .params > :matches(Decorator, :not(:first-child))",
+  ];
 
   const nonJsxIgnoreNodes = [
-    'JSXOpeningElement',
-    'JSXClosingElement',
-  ]
+    "JSXOpeningElement",
+    "JSXClosingElement",
+  ];
 
   const basicIndentRuleOptions = {
     ArrayExpression: 1,
@@ -41,36 +41,36 @@ function formattingConfigs({ formatting, lessOpinionated }: Required<Options>): 
     outerIIFEBody: 1,
     SwitchCase: 1,
     VariableDeclarator: 1,
-  }
+  };
 
   return [
     {
-      name: '@stylistic/shared',
+      name: "@stylistic/shared",
       files: undefined,
       ...pluginStylistic.configs.customize(formatting),
     },
     {
-      name: '@stylistic/customize',
+      name: "@stylistic/customize",
       files: undefined,
       plugins: {
-        'antfu': pluginAntfu,
-        'hyoban': pluginHyoban as unknown as ESLint.Plugin,
-        '@stylistic': pluginStylistic as unknown as ESLint.Plugin,
+        "antfu": pluginAntfu,
+        "hyoban": pluginHyoban as unknown as ESLint.Plugin,
+        "@stylistic": pluginStylistic as unknown as ESLint.Plugin,
       },
       rules: {
-        '@stylistic/quotes': ['error', formatting.quotes, { allowTemplateLiterals: 'always', avoidEscape: true }],
-        '@stylistic/max-statements-per-line': 'off',
-        '@stylistic/multiline-ternary': ['error', 'always-multiline', { ignoreJSX: true }],
-        '@stylistic/operator-linebreak': ['error', formatting.lineBreak ?? 'before'],
-        '@stylistic/jsx-one-expression-per-line': ['error', { allow: 'single-line' }],
-        'antfu/consistent-chaining': 'error',
-        'antfu/consistent-list-newline': 'error',
-        'hyoban/jsx-attribute-spacing': 'error',
+        "@stylistic/quotes": ["error", formatting.quotes, { allowTemplateLiterals: "always", avoidEscape: true }],
+        "@stylistic/max-statements-per-line": "off",
+        "@stylistic/multiline-ternary": ["error", "always-multiline", { ignoreJSX: true }],
+        "@stylistic/operator-linebreak": ["error", formatting.lineBreak ?? "before"],
+        "@stylistic/jsx-one-expression-per-line": ["error", { allow: "single-line" }],
+        "antfu/consistent-chaining": "error",
+        "antfu/consistent-list-newline": "error",
+        "hyoban/jsx-attribute-spacing": "error",
 
-        '@stylistic/no-tabs': 'off',
-        '@stylistic/jsx-indent-props': 'off',
-        '@stylistic/indent': [
-          'error',
+        "@stylistic/no-tabs": "off",
+        "@stylistic/jsx-indent-props": "off",
+        "@stylistic/indent": [
+          "error",
           formatting.indent,
           {
             ...basicIndentRuleOptions,
@@ -80,11 +80,11 @@ function formattingConfigs({ formatting, lessOpinionated }: Required<Options>): 
 
         ...(lessOpinionated
           ? {
-              curly: ['error', 'multi-line', 'consistent'],
+              curly: ["error", "multi-line", "consistent"],
             }
           : {
-              'antfu/curly': 'error',
-              'antfu/if-newline': 'error',
+              "antfu/curly": "error",
+              "antfu/if-newline": "error",
             }
         ),
       },
@@ -92,8 +92,8 @@ function formattingConfigs({ formatting, lessOpinionated }: Required<Options>): 
     {
       files: GLOB_JSX_SRC,
       rules: {
-        '@stylistic/indent': [
-          'error',
+        "@stylistic/indent": [
+          "error",
           formatting.indent,
           {
             ...basicIndentRuleOptions,
@@ -102,52 +102,52 @@ function formattingConfigs({ formatting, lessOpinionated }: Required<Options>): 
         ],
       },
     },
-  ]
+  ];
 }
 
 export function stylisticConfigs(options: Required<Options>): ConfigArray {
-  const { typeChecked, lessOpinionated } = options
+  const { typeChecked, lessOpinionated } = options;
   return [
     ...formattingConfigs(options),
     (typeChecked === true
       ? typescriptEslint.configs.stylisticTypeChecked
       : typescriptEslint.configs.stylistic) as LinterConfig,
     {
-      name: 'typescript-eslint/stylistic/custom',
+      name: "typescript-eslint/stylistic/custom",
       files: GLOB_TS_SRC,
       rules: {
-        '@typescript-eslint/no-empty-function': 'off',
-        '@typescript-eslint/consistent-type-definitions': 'off',
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/consistent-type-definitions": "off",
 
         ...(lessOpinionated
           ? {
-              '@typescript-eslint/array-type': 'off',
+              "@typescript-eslint/array-type": "off",
             }
           : {
-              '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
+              "@typescript-eslint/array-type": ["error", { default: "array-simple" }],
             }
         ),
       },
     },
     typeChecked && {
-      name: 'typescript-eslint/stylistic-type-checked/custom',
+      name: "typescript-eslint/stylistic-type-checked/custom",
       files: GLOB_TS_SRC,
       rules: {
-        '@typescript-eslint/prefer-nullish-coalescing': 'off',
+        "@typescript-eslint/prefer-nullish-coalescing": "off",
       },
     },
     {
-      name: '@stylistic/customize',
+      name: "@stylistic/customize",
       files: undefined,
       plugins: {
-        'antfu': pluginAntfu,
-        'hyoban': pluginHyoban as unknown as ESLint.Plugin,
-        '@stylistic': pluginStylistic as unknown as ESLint.Plugin,
+        "antfu": pluginAntfu,
+        "hyoban": pluginHyoban as unknown as ESLint.Plugin,
+        "@stylistic": pluginStylistic as unknown as ESLint.Plugin,
       },
       rules: {
-        'object-shorthand': 'error',
-        'prefer-destructuring': [
-          'error',
+        "object-shorthand": "error",
+        "prefer-destructuring": [
+          "error",
           {
             VariableDeclarator: {
               array: false,
@@ -162,16 +162,16 @@ export function stylisticConfigs(options: Required<Options>): ConfigArray {
             enforceForRenamedProperties: false,
           },
         ],
-        'prefer-template': 'error',
-        '@stylistic/jsx-self-closing-comp': ['error', { component: true, html: true }],
+        "prefer-template": "error",
+        "@stylistic/jsx-self-closing-comp": ["error", { component: true, html: true }],
         ...(lessOpinionated
           ? {}
           : {
-              'antfu/top-level-function': 'error',
-              'hyoban/prefer-early-return': 'error',
+              "antfu/top-level-function": "error",
+              "hyoban/prefer-early-return": "error",
             }
         ),
       },
     },
-  ]
+  ];
 }

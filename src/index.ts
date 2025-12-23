@@ -1,28 +1,28 @@
-import commandConfig from 'eslint-plugin-command/config'
+import commandConfig from "eslint-plugin-command/config";
 
-import { importConfig } from './configs/imports'
-import { javaScriptConfigs } from './configs/javascript'
-import { jsonConfigs } from './configs/json'
-import { reactConfigs } from './configs/react'
-import { regexConfig } from './configs/regex'
-import { stylisticConfigs } from './configs/stylistic'
-import { tailwindCSSConfig } from './configs/tailwindcss'
-import { typeScriptConfigs } from './configs/typescript'
-import { unicornConfigs } from './configs/unicorn'
-import { unocssConfig } from './configs/unocss'
-import { unusedConfig } from './configs/unused'
-import type { Options } from './option'
-import { mergeDefaultOptions } from './option'
-import type { ConfigArray, LinterConfig } from './utils'
-import { config } from './utils'
+import { importConfig } from "./configs/imports";
+import { javaScriptConfigs } from "./configs/javascript";
+import { jsonConfigs } from "./configs/json";
+import { reactConfigs } from "./configs/react";
+import { regexConfig } from "./configs/regex";
+import { stylisticConfigs } from "./configs/stylistic";
+import { tailwindCSSConfig } from "./configs/tailwindcss";
+import { typeScriptConfigs } from "./configs/typescript";
+import { unicornConfigs } from "./configs/unicorn";
+import { unocssConfig } from "./configs/unocss";
+import { unusedConfig } from "./configs/unused";
+import type { Options } from "./option";
+import { mergeDefaultOptions } from "./option";
+import type { ConfigArray, LinterConfig } from "./utils";
+import { config } from "./utils";
 
-export * from './consts'
+export * from "./consts";
 
 export async function defineConfig(
   options?: Options,
   ...args: ConfigArray
 ): Promise<LinterConfig[]> {
-  const finalOptions = await mergeDefaultOptions(options)
+  const finalOptions = await mergeDefaultOptions(options);
 
   return config(
     finalOptions,
@@ -39,5 +39,5 @@ export async function defineConfig(
     tailwindCSSConfig(finalOptions),
     unocssConfig(finalOptions),
     ...args,
-  )
+  );
 }

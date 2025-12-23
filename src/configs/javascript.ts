@@ -1,9 +1,9 @@
-import js from '@eslint/js'
-import globals from 'globals'
+import js from "@eslint/js";
+import globals from "globals";
 
-import { GLOB_SRC } from '../consts'
-import type { Options } from '../option'
-import type { LinterConfig } from '../utils'
+import { GLOB_SRC } from "../consts";
+import type { Options } from "../option";
+import type { LinterConfig } from "../utils";
 
 export function javaScriptConfigs({
   strict,
@@ -27,12 +27,12 @@ export function javaScriptConfigs({
             jsx: true,
           },
           ecmaVersion: 2022,
-          sourceType: 'module',
+          sourceType: "module",
         },
-        sourceType: 'module',
+        sourceType: "module",
       },
       linterOptions,
-      name: strict ? '@eslint/js/all' : '@eslint/js/recommended',
+      name: strict ? "@eslint/js/all" : "@eslint/js/recommended",
       rules: strict ? js.configs.all.rules : js.configs.recommended.rules,
       settings,
     },
@@ -42,13 +42,13 @@ export function javaScriptConfigs({
         ? {
             /// keep-sorted
             rules: {
-              'arrow-body-style': 'off',
-              'curly': 'off',
-              'func-style': 'off',
-              'no-empty-function': 'off',
-              'object-shorthand': 'off',
-              'prefer-destructuring': 'off',
-              'prefer-template': 'off',
+              "arrow-body-style": "off",
+              "curly": "off",
+              "func-style": "off",
+              "no-empty-function": "off",
+              "object-shorthand": "off",
+              "prefer-destructuring": "off",
+              "prefer-template": "off",
             },
           }
         : {},
@@ -57,18 +57,18 @@ export function javaScriptConfigs({
         ? {
             /// keep-sorted
             rules: {
-              'camelcase': 'off',
-              'capitalized-comments': 'off',
-              'complexity': 'off',
-              'consistent-return': 'off',
-              'id-length': 'off',
-              'max-lines-per-function': 'off',
-              'max-lines': 'off',
-              'max-statements': 'off',
-              'no-implicit-coercion': 'off',
-              'no-inline-comments': 'off',
-              'no-magic-numbers': 'off',
-              'no-warning-comments': 'off',
+              "camelcase": "off",
+              "capitalized-comments": "off",
+              "complexity": "off",
+              "consistent-return": "off",
+              "id-length": "off",
+              "max-lines-per-function": "off",
+              "max-lines": "off",
+              "max-statements": "off",
+              "no-implicit-coercion": "off",
+              "no-inline-comments": "off",
+              "no-magic-numbers": "off",
+              "no-warning-comments": "off",
             },
           }
         : {},
@@ -77,18 +77,18 @@ export function javaScriptConfigs({
         ? {
             /// keep-sorted
             rules: {
-              'init-declarations': 'off',
-              'no-continue': 'off',
-              'no-shadow': 'off',
-              'no-ternary': 'off',
-              'no-undefined': 'off',
-              'no-underscore-dangle': 'off',
-              'no-useless-assignment': 'off',
-              'one-var': 'off',
-              'prefer-named-capture-group': 'off',
-              'require-unicode-regexp': 'off',
-              'sort-keys': 'off',
-              'sort-vars': 'off',
+              "init-declarations": "off",
+              "no-continue": "off",
+              "no-shadow": "off",
+              "no-ternary": "off",
+              "no-undefined": "off",
+              "no-underscore-dangle": "off",
+              "no-useless-assignment": "off",
+              "one-var": "off",
+              "prefer-named-capture-group": "off",
+              "require-unicode-regexp": "off",
+              "sort-keys": "off",
+              "sort-vars": "off",
             },
           }
         : {},
@@ -97,28 +97,28 @@ export function javaScriptConfigs({
         ? {
             /// keep-sorted
             rules: {
-              'no-void': ['error', { allowAsStatement: true }],
+              "no-void": ["error", { allowAsStatement: true }],
             },
           }
         : {},
       // all rules here are nice to have, let's enable them
       {
-        name: '@eslint/js/custom',
+        name: "@eslint/js/custom",
         /// keep-sorted
         rules: {
           // https://twitter.com/karlhorky/status/1773632485055680875
-          'array-callback-return': 'error',
-          'eqeqeq': ['error', 'smart'],
-          'new-cap': ['error', { capIsNew: false, newIsCap: true, properties: true }],
-          'no-console': ['error', { allow: ['info', 'warn', 'error'] }],
+          "array-callback-return": "error",
+          "eqeqeq": ["error", "smart"],
+          "new-cap": ["error", { capIsNew: false, newIsCap: true, properties: true }],
+          "no-console": ["error", { allow: ["info", "warn", "error"] }],
           // https://twitter.com/ryanflorence/status/1786394911895683512
-          'no-param-reassign': 'warn',
-          'no-restricted-syntax': ['error', ...restrictedSyntax],
-          'no-template-curly-in-string': 'error',
-          'no-use-before-define': ['error', { classes: false, functions: false, variables: true }],
-          'prefer-arrow-callback': ['error', { allowNamedFunctions: true, allowUnboundThis: true }],
+          "no-param-reassign": "warn",
+          "no-restricted-syntax": ["error", ...restrictedSyntax],
+          "no-template-curly-in-string": "error",
+          "no-use-before-define": ["error", { classes: false, functions: false, variables: true }],
+          "prefer-arrow-callback": ["error", { allowNamedFunctions: true, allowUnboundThis: true }],
         },
       },
     ],
-  ]
+  ];
 }

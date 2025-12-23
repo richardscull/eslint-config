@@ -1,21 +1,15 @@
 {
-  "name": "eslint-config-hyoban",
+  "name": "eslint-config",
   "type": "module",
-  "version": "4.1.0",
+  "version": "1.0.0",
   "packageManager": "pnpm@10.26.1",
-  "description": "Hyoban's ESLint Config",
-  "author": {
-    "name": "Stephen Zhou",
-    "email": "hi@hyoban.cc",
-    "url": "https://hyoban.cc"
-  },
+  "description": "ESLint Config",
+  "author": "richardscull, original by hyoban",
   "license": "MIT",
-  "homepage": "https://github.com/hyoban/eslint-config-hyoban#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hyoban/eslint-config-hyoban.git"
+    "url": "git+https://github.com/richardscull/eslint-config.git"
   },
-  "bugs": "https://github.com/hyoban/eslint-config-hyoban/issues",
   "keywords": [
     "eslint-config"
   ],
