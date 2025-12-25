@@ -1,7 +1,7 @@
 {
   "name": "@richardscull/eslint-config",
   "type": "module",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "packageManager": "pnpm@10.26.1",
   "description": "ESLint Config",
   "author": "richardscull, original by hyoban",

@@ -110,7 +110,6 @@ export function javaScriptConfigs({
           "array-callback-return": "error",
           "eqeqeq": ["error", "smart"],
           "new-cap": ["error", { capIsNew: false, newIsCap: true, properties: true }],
-          "no-await-in-loop": "warn",
           "no-console": ["error", { allow: ["info", "warn", "error"] }],
           // https://twitter.com/ryanflorence/status/1786394911895683512
           "no-param-reassign": "warn",
