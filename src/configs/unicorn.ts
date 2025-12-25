@@ -51,6 +51,9 @@ export function unicornConfigs({ fileCase, preferESM }: Required<Options>) {
         "unicorn/prefer-add-event-listener": "off",
         "unicorn/number-literal-case": "off",
         "unicorn/prefer-math-trunc": "off",
+
+        // https://github.com/sindresorhus/eslint-plugin-unicorn/issues/1684#issuecomment-1008606965 -- There are valid use-cases for undefined in arguments
+        "unicorn/no-useless-undefined": ["error", { checkArguments: false }],
       },
     } satisfies LinterConfig,
   ];
