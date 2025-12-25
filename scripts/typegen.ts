@@ -10,7 +10,7 @@ const plugins = await flatConfigsToPlugins(
     {
       plugins: {
         "": {
-          // eslint-disable-next-line @typescript-eslint/no-deprecated
+          // eslint-disable-next-line @typescript-eslint/no-deprecated -- for typegen
           rules: Object.fromEntries(builtinRules.entries()),
         },
       },

@@ -22,10 +22,10 @@ const severities = new Set([0, 1, 2, "off", "warn", "error"]);
 export const defu = createDefu((obj, key, value) => {
   if (
     Array.isArray(value)
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument -- checked
     && severities.has(value[0])
     && Array.isArray(obj[key])
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument -- checked
     && severities.has(obj[key][0])
   ) {
     // @ts-expect-error It's fine here

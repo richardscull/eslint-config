@@ -1,5 +1,6 @@
 import commandConfig from "eslint-plugin-command/config";
 
+import { eslintCommentsConfig } from "./configs/eslint-comments";
 import { importConfig } from "./configs/imports";
 import { javaScriptConfigs } from "./configs/javascript";
 import { jsonConfigs } from "./configs/json";
@@ -33,6 +34,7 @@ export async function defineConfig(
     unusedConfig(),
     regexConfig(),
     commandConfig(),
+    eslintCommentsConfig(),
     ...stylisticConfigs(finalOptions),
     ...jsonConfigs(finalOptions),
     ...reactConfigs(finalOptions),
