@@ -1,10 +1,10 @@
-# eslint-config-hyoban
+# richardscull's eslint-config
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![License][license-src]][license-href]
 
-Hyoban's ESLint Config enables most of the recommended rules for `js`, `ts`, and `react`, uses ESLint for formatting, and provides a lot of useful plugins.
+Hyoban's ESLint Fork Config enables most of the recommended rules for `js`, `ts`, and `react`, uses ESLint for formatting, and provides a lot of useful plugins.
 
 Read more about why I use ESLint for linting and formatting on [xLog](https://hyoban.xlog.app/why-eslint).
 
@@ -24,7 +24,7 @@ Read more about why I use ESLint for linting and formatting on [xLog](https://hy
 > You may not need `lint-staged` and `simple-git-hooks` if you don't ignore auto-fix for rules in the editor.
 
 ```sh
-ni -D eslint eslint-config-hyoban lint-staged simple-git-hooks
+ni i -D eslint @richardscull/eslint-config lint-staged simple-git-hooks
 ```
 
 If you are using ESLint 9.9.0 and `eslint.config.ts`, you need to install `jiti`.
