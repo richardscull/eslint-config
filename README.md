@@ -4,7 +4,7 @@
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![License][license-src]][license-href]
 
-Hyoban's ESLint Fork Config enables most of the recommended rules for `js`, `ts`, and `react`, uses ESLint for formatting, and provides a lot of useful plugins.
+richardscull's ESLint Fork (original by hyoban) Config enables most of the recommended rules for `js`, `ts`, and `react`, uses ESLint for formatting, and provides a lot of useful plugins.
 
 Read more about why I use ESLint for linting and formatting on [xLog](https://hyoban.xlog.app/why-eslint).
 
@@ -40,7 +40,7 @@ ni -D jiti
 
 ```ts
 // @ts-check
-import { defineConfig } from 'eslint-config-hyoban'
+import { defineConfig } from '@richardscull/eslint-config'
 
 export default defineConfig()
 ```
