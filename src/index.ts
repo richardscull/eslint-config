@@ -40,9 +40,9 @@ export async function defineConfig(
 
   if (finalOptions.tailwindCSS) {
     tailwindCSSConfig(finalOptions);
-
-    configOptions.push(...args);
   }
+
+  configOptions.push(...args);
 
   return config(finalOptions, ...configOptions);
 }
