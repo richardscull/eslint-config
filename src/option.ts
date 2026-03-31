@@ -2,6 +2,7 @@ import type { StylisticCustomizeOptions } from "@stylistic/eslint-plugin";
 import type { ParserOptions } from "@typescript-eslint/types";
 import defu from "defu";
 import { getPackageInfo, isPackageExists, isPackageListed } from "local-pkg";
+// eslint-disable-next-line e18e/ban-dependencies -- don't really want to bother
 import { readPackageUp } from "read-package-up";
 
 import { DEFAULT_IGNORE_FILES, GLOB_EXCLUDE } from "./consts";
@@ -9,6 +10,11 @@ import type { LinterConfig } from "./utils";
 
 /// keep-sorted
 export type Options = {
+  e18e?: {
+    modernization?: boolean;
+    moduleReplacements?: boolean;
+    performanceImprovements?: boolean;
+  };
   fileCase?: "camelCase" | "snakeCase" | "kebabCase" | "pascalCase" | false;
   filesDisableTypeChecking?: string[];
   formatting?: false | Omit<StylisticCustomizeOptions, "flat" | "pluginName"> & { lineBreak?: "after" | "before" };
@@ -46,6 +52,12 @@ export async function mergeDefaultOptions(
 
   /// keep-sorted
   const defaultOptions: Required<Options> = {
+
+    e18e: {
+      modernization: true,
+      moduleReplacements: true,
+      performanceImprovements: true,
+    },
     fileCase: false,
     filesDisableTypeChecking: [],
     formatting: {

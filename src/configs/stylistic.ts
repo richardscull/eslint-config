@@ -30,7 +30,7 @@ function formattingConfigs({ formatting, lessOpinionated }: Required<Options>): 
       rules: {
         "@stylistic/brace-style": ["error", "1tbs", { allowSingleLine: true }],
         "@stylistic/quotes": ["error", formatting.quotes, { allowTemplateLiterals: "always", avoidEscape: true }],
-        "@stylistic/max-statements-per-line": "off",
+        "@stylistic/max-statements-per-line": ["error", { max: 2 }],
         "@stylistic/multiline-ternary": ["error", "always-multiline", { ignoreJSX: true }],
         "@stylistic/operator-linebreak": ["error", formatting.lineBreak ?? "before"],
         "@stylistic/jsx-one-expression-per-line": ["error", { allow: "single-line" }],
