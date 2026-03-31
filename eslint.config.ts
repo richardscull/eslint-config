@@ -7,7 +7,6 @@ export default defineConfig(
     typeChecked: true,
     fileCase: "kebabCase",
     tailwindCSS: { order: false },
-    unocss: true,
   },
   {
     name: "project/disable",

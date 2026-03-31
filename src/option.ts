@@ -25,7 +25,6 @@ export type Options = {
   tailwindCSS?: boolean | { order: boolean };
   tsconfigRootDir?: string;
   typeChecked?: boolean | "essential";
-  unocss?: boolean;
 } & Pick<LinterConfig, "linterOptions" | "settings">;
 
 export async function mergeDefaultOptions(
@@ -37,7 +36,6 @@ export async function mergeDefaultOptions(
   const hasRemix = isPackageExists("remix");
   const hasNext = isPackageExists("next");
   const hasExpo = isPackageExists("expo");
-  const hasUnocss = isPackageExists("unocss");
 
   const [tailwindPackageInfo, tailwindPackageListed] = await Promise.all([
     getPackageInfo("tailwindcss"),
@@ -90,7 +88,6 @@ export async function mergeDefaultOptions(
     tailwindCSS: hasTailwindCSS,
     tsconfigRootDir: process.cwd(),
     typeChecked: false,
-    unocss: hasUnocss,
   };
 
   return defu<Required<Options>, Options[]>(

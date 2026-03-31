@@ -10,7 +10,6 @@ import { stylisticConfigs } from "./configs/stylistic";
 import { tailwindCSSConfig } from "./configs/tailwindcss";
 import { typeScriptConfigs } from "./configs/typescript";
 import { unicornConfigs } from "./configs/unicorn";
-import { unocssConfig } from "./configs/unocss";
 import { unusedConfig } from "./configs/unused";
 import type { Options } from "./option";
 import { mergeDefaultOptions } from "./option";
@@ -39,7 +38,6 @@ export async function defineConfig(
     ...jsonConfigs(finalOptions),
     ...reactConfigs(finalOptions),
     tailwindCSSConfig(finalOptions),
-    unocssConfig(finalOptions),
     ...args,
   );
 }

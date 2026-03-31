@@ -11,7 +11,7 @@ Read more about why I use ESLint for linting and formatting on [xLog](https://hy
 | Basic              | Style            | React         | Others              | Tools                  |
 | ------------------ | ---------------- | ------------- | ------------------- | ---------------------- |
 | [js] ✅            | [stylistic] ✅   | [react] ✅    | [Tailwind CSS] ✅   | [config-inspector] ✅  |
-| [ts] ✅            | [antfu] ✅       | [hooks] ✅    | [UnoCSS] ✅         | [eslint-types]         |
+| [ts] ✅            | [antfu] ✅       | [hooks] ✅    |                      | [eslint-types]         |
 | [unicorn] ✅       | [import-sort] ✅ | [refresh] ✅  | [flat-gitignore] ✅ | [eslint-typegen] ✅    |
 | [import-x] ✅      | [jsonc] ✅       | [compiler] ✅ | [command] ✅        | [@antfu/eslint-config] |
 | [unused-import] ✅ | [yml]            | [jsx-a11y]    | [regexp] ✅         |                        |
@@ -163,7 +163,6 @@ export default defineConfig({
 [jsx-nesting]: https://github.com/MananTank/eslint-plugin-validate-jsx-nesting
 [jsx-a11y]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y
 [Tailwind CSS]: https://github.com/francoismassart/eslint-plugin-tailwindcss
-[UnoCSS]: https://unocss.dev/integrations/eslint
 [flat-gitignore]: https://github.com/antfu/eslint-config-flat-gitignore
 [config-inspector]: https://github.com/eslint/config-inspector
 [@antfu/eslint-config]: https://github.com/antfu/eslint-config

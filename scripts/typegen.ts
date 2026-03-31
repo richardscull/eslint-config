@@ -20,7 +20,6 @@ const plugins = await flatConfigsToPlugins(
       strict: true,
       typeChecked: true,
       tailwindCSS: true,
-      unocss: true,
     })),
   ],
 );
