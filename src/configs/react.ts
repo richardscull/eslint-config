@@ -26,7 +26,7 @@ export function reactConfigs({
       const reactGoogleTranslate = await interopDefault(import("eslint-plugin-react-google-translate")) as ESLint.Plugin;
       const eslintReact = await interopDefault(import("@eslint-react/eslint-plugin"));
       const config = strict ? eslintReact.configs.strict : eslintReact.configs.recommended;
-      const reactHooks = await interopDefault(import("eslint-plugin-react-hooks"));
+      const reactHooks = await interopDefault(import("eslint-plugin-react-hooks")) as ESLint.Plugin;
 
       return {
         name: `react/setup/${strict ? "strict" : "recommended"}`,
