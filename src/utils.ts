@@ -1,11 +1,10 @@
 import { createDefu } from "defu";
 import type { Linter } from "eslint";
 
-import type { RuleOptions } from "../eslint-typegen";
 import { GLOB_SRC } from "./consts";
 import type { Options } from "./option";
 
-export type LinterConfig = Linter.Config<RuleOptions & Linter.RulesRecord>;
+export type LinterConfig = Linter.Config;
 
 type MaybeArray<T> = T | T[];
 type Awaitable<T> = T | Promise<T>;

@@ -73,17 +73,7 @@ export async function mergeDefaultOptions(
       "TSEnumDeclaration[const=true]",
       "TSExportAssignment",
     ],
-    settings: {
-      ...(
-        hasTailwindCSS
-          ? {
-              tailwindcss: {
-                callees: ["classnames", "clsx", "ctl", "cn"],
-              },
-            }
-          : {}
-      ),
-    },
+    settings: {},
     strict: false,
     tailwindCSS: hasTailwindCSS,
     tsconfigRootDir: process.cwd(),

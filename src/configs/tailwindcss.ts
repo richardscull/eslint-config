@@ -1,4 +1,3 @@
-import { GLOB_TS_SRC } from "../consts";
 import type { Options } from "../option";
 import type { LinterConfig } from "../utils";
 import { interopDefault } from "../utils";
@@ -9,16 +8,18 @@ export function tailwindCSSConfig({ tailwindCSS }: Required<Options>) {
   process.env.TAILWIND_MODE = "build";
 
   return async () => {
-    const tailwind = await interopDefault(import ("eslint-plugin-tailwindcss"));
+    const tailwind = await interopDefault(import ("eslint-plugin-better-tailwindcss"));
     return [
-      ...tailwind.configs["flat/recommended"],
       {
-        name: "tailwindcss/recommended",
-        files: GLOB_TS_SRC,
+        name: "tailwindcss/setup",
+        plugins: {
+          tailwindcss: tailwind,
+        },
       },
       typeof tailwindCSS === "object" && !tailwindCSS.order && {
         rules: {
-          "tailwindcss/classnames-order": "off",
+          "tailwindcss/enforce-consistent-class-order": "error",
+          "tailwindcss/no-duplicate-classes": "error",
         },
       },
     ] as LinterConfig[];

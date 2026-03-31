@@ -24,8 +24,7 @@ export async function defineConfig(
 ): Promise<LinterConfig[]> {
   const finalOptions = await mergeDefaultOptions(options);
 
-  return config(
-    finalOptions,
+  const configOptions = [
     ...javaScriptConfigs(finalOptions),
     ...unicornConfigs(finalOptions),
     ...typeScriptConfigs(finalOptions),
@@ -37,7 +36,13 @@ export async function defineConfig(
     ...stylisticConfigs(finalOptions),
     ...jsonConfigs(finalOptions),
     ...reactConfigs(finalOptions),
-    tailwindCSSConfig(finalOptions),
-    ...args,
-  );
+  ];
+
+  if (finalOptions.tailwindCSS) {
+    tailwindCSSConfig(finalOptions);
+
+    configOptions.push(...args);
+  }
+
+  return config(finalOptions, ...configOptions);
 }
