@@ -108,7 +108,6 @@ export function javaScriptConfigs({
         rules: {
           // https://twitter.com/karlhorky/status/1773632485055680875
           "array-callback-return": "error",
-          "brace-style": ["error", "1tbs", { allowSingleLine: true }],
           "eqeqeq": ["error", "smart"],
           "new-cap": ["error", { capIsNew: false, newIsCap: true, properties: true }],
           "no-console": ["error", { allow: ["info", "warn", "error"] }],
