@@ -8,18 +8,31 @@ export function tailwindCSSConfig({ tailwindCSS }: Required<Options>) {
   process.env.TAILWIND_MODE = "build";
 
   return async () => {
-    const tailwind = await interopDefault(import ("eslint-plugin-better-tailwindcss"));
+    const tailwind = await interopDefault(import("eslint-plugin-better-tailwindcss"));
     return [
       {
         name: "tailwindcss/setup",
         plugins: {
           tailwindcss: tailwind,
         },
+        rules: {
+          ...tailwind.configs["recommended-warn"].rules,
+          ...tailwind.configs["recommended-error"].rules,
+
+          "better-tailwindcss/no-unknown-classes": [
+            "error",
+            {
+              ignore: ["image-shine", "gradient-line"],
+            },
+          ],
+        },
       },
       typeof tailwindCSS === "object" && !tailwindCSS.order && {
         rules: {
-          "tailwindcss/enforce-consistent-class-order": "error",
-          "tailwindcss/no-duplicate-classes": "error",
+          "better-tailwindcss/enforce-consistent-line-wrapping": "off",
+          "better-tailwindcss/enforce-consistent-class-order": "off",
+          "better-tailwindcss/no-duplicate-classes": "off",
+
         },
       },
     ] as LinterConfig[];
