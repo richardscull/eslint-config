@@ -41,7 +41,7 @@ export async function defineConfig(
   ];
 
   if (finalOptions.tailwindCSS) {
-    tailwindCSSConfig(finalOptions);
+    configOptions.push(tailwindCSSConfig(finalOptions));
   }
 
   configOptions.push(...args);

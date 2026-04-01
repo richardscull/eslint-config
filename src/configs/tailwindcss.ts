@@ -13,7 +13,7 @@ export function tailwindCSSConfig({ tailwindCSS }: Required<Options>) {
       {
         name: "tailwindcss/setup",
         plugins: {
-          tailwindcss: tailwind,
+          "better-tailwindcss": tailwind,
         },
         rules: {
           ...tailwind.configs["recommended-warn"].rules,
