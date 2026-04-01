@@ -19,6 +19,8 @@ export function tailwindCSSConfig({ tailwindCSS }: Required<Options>) {
           ...tailwind.configs["recommended-warn"].rules,
           ...tailwind.configs["recommended-error"].rules,
 
+          // too opinionated IMO
+          "better-tailwindcss/enforce-consistent-line-wrapping": "off",
           "better-tailwindcss/no-unknown-classes": [
             "error",
             {
@@ -29,7 +31,6 @@ export function tailwindCSSConfig({ tailwindCSS }: Required<Options>) {
       },
       typeof tailwindCSS === "object" && !tailwindCSS.order && {
         rules: {
-          "better-tailwindcss/enforce-consistent-line-wrapping": "off",
           "better-tailwindcss/enforce-consistent-class-order": "off",
           "better-tailwindcss/no-duplicate-classes": "off",
 
