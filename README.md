@@ -50,39 +50,17 @@ export default defineConfig()
 
 ```jsonc
 {
-  // You shouldn't use formatter with this ESLint config
-  "[javascript][javascriptreact][typescript][typescriptreact][json][jsonc]": {
-    "editor.formatOnSave": false,
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    }
-  },
+  "eslint.rules.customizations": [
+    { "rule": "unused-imports/no-unused-imports", "severity": "warn" },
+    { "rule": "test/no-only-tests", "severity": "warn" },
+    { "rule": "prefer-const", "severity": "warn" }
+  ],
 
-  // If you do not want to auto fix some rules on save
-  // You can put this in your user settings or workspace settings
   "eslint.codeActionsOnSave.rules": [
-    "!prefer-const",
     "!unused-imports/no-unused-imports",
-    "!@stylistic/jsx-self-closing-comp",
-    "!tailwindcss/classnames-order",
+    "!test/no-only-tests",
+    "!prefer-const",
     "*"
-  ],
-
-  // If you want to silent stylistic rules
-  // You can put this in your user settings or workspace settings
-  "eslint.rules.customizations": [
-    { "rule": "@stylistic/*", "severity": "off", "fixable": true },
-    { "rule": "antfu/consistent-list-newline", "severity": "off" },
-    { "rule": "hyoban/jsx-attribute-spacing", "severity": "off" },
-    { "rule": "simple-import-sort/*", "severity": "off" },
-    { "rule": "prefer-const", "severity": "off" },
-    { "rule": "unused-imports/no-unused-imports", "severity": "off" },
-    { "rule": "tailwindcss/classnames-order", "severity": "off" }
-  ],
-
-  // You can also silent all auto fixable rules
-  "eslint.rules.customizations": [
-    { "rule": "*", "fixable": true, "severity": "off" }
   ]
 }
 ```
